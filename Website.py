@@ -88,61 +88,6 @@ html_content = """
         .reference-link-sup a:hover {
             text-decoration: underline; /* Apply underline on hover to the anchor */
         }
-
-        /* Modal styles */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        .modal.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .modal-content {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
-            width: 90%;
-            position: relative;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-        .modal-close-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #666;
-        }
-        .loading-spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #3498db;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body class="antialiased">
@@ -196,7 +141,6 @@ html_content = """
             <div class="text-center mb-6">
                 <h3 class="text-3xl font-bold text-gray-900 mb-2">The Market Opportunity</h3>
                 <p class="max-w-2xl mx-auto text-gray-600">This section explores the significant financial growth and widespread business adoption fueling the AI revolution in Indian retail. The data shows a market not just growing, but accelerating, with businesses of all sizes investing in AI to gain a competitive edge.</p>
-                <button class="summarize-btn mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">✨ Summarize Section</button>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
@@ -221,22 +165,21 @@ html_content = """
             <div class="text-center mb-6">
                 <h3 class="text-3xl font-bold text-gray-900 mb-2">Understanding the Indian Consumer</h3>
                 <p class="max-w-2xl mx-auto text-gray-600">Successful AI integration hinges on understanding the end-user. This section delves into the digital landscape of India's consumers, their evolving preferences, and their unique perspective on AI—a blend of high enthusiasm and critical concerns about privacy.</p>
-                <button class="summarize-btn mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">✨ Summarize Section</button>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <div class="stat-card">
+                <div class="stat-card text-center">
                     <p class="text-3xl font-bold text-blue-600">974M<sup class="reference-link-sup"><a href="#ref-15">[15]</a></sup></p>
                     <p class="text-gray-500 mt-1">Internet Users</p>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card text-center">
                     <p class="text-3xl font-bold text-blue-600">85.5%<sup class="reference-link-sup"><a href="#ref-17">[17]</a></sup></p>
                     <p class="text-gray-500 mt-1">Household Smartphone Penetration</p>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card text-center">
                     <p class="text-3xl font-bold text-blue-600">84%<sup class="reference-link-sup"><a href="#ref-5">[5]</a></sup></p>
                     <p class="text-gray-500 mt-1">UPI Share of Digital Payments</p>
                 </div>
-                 <div class="stat-card">
+                 <div class="stat-card text-center">
                     <p class="text-3xl font-bold text-blue-600">₹9<sup class="reference-link-sup"><a href="#ref-15">[15, 16]</a></sup></p>
                     <p class="text-gray-500 mt-1">Avg. Cost per GB of Data</p>
                 </div>
@@ -254,7 +197,6 @@ html_content = """
             <div class="text-center mb-6">
                 <h3 class="text-3xl font-bold text-gray-900 mb-2">AI in Action: Transforming Retail</h3>
                 <p class="max-w-2xl mx-auto text-gray-600">AI is not a future concept; it's a present-day reality revolutionizing every facet of retail. This interactive section showcases how AI is being applied to create more personal customer experiences and drive unprecedented operational efficiency. Click through the tabs to explore key use cases.</p>
-                <button class="summarize-btn mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">✨ Summarize Section</button>
             </div>
             <div>
                 <div class="border-b border-gray-200 mb-6">
@@ -300,7 +242,6 @@ html_content = """
             <div class="text-center mb-6">
                 <h3 class="text-3xl font-bold text-gray-900 mb-2">Industry Leaders: AI in Practice</h3>
                 <p class="max-w-2xl mx-auto text-gray-600">Theory meets practice. This section highlights how leading Indian companies are implementing tailored AI solutions to solve real-world challenges and create distinct competitive advantages. Click on each company to see how they are innovating.</p>
-                <button class="summarize-btn mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">✨ Summarize Section</button>
             </div>
             <div class="space-y-4 max-w-4xl mx-auto">
                 <div class="accordion-item bg-white rounded-lg shadow-md">
@@ -373,17 +314,6 @@ html_content = """
         </section>
     </main>
 
-    <!-- Summary Modal -->
-    <div id="summaryModal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close-btn">&times;</button>
-            <h3 class="text-2xl font-bold text-gray-900 mb-4" id="summaryModalTitle">Section Summary</h3>
-            <div id="summaryModalBody" class="text-gray-700">
-                <div class="loading-spinner"></div>
-            </div>
-        </div>
-    </div>
-
     <footer class="bg-gray-800 text-white mt-16">
         <div class="container mx-auto px-6 py-4 text-center text-sm">
             <p>&copy; 2024 Interactive Report on AI in Indian Retail. All data sourced from the provided report.</p>
@@ -392,12 +322,12 @@ html_content = """
 
     <script>
         let marketGrowthChartInstance;
-        let componentsChartInstance; // New chart instance
+        let componentsChartInstance;
         let consumerSentimentChartInstance;
 
         const chartOptions = {
             responsive: true,
-            maintainAspectRatio: false, // Crucial for responsiveness within fixed-height containers
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     position: 'bottom',
@@ -443,7 +373,6 @@ html_content = """
                 return null;
             }
 
-            // Set canvas dimensions to match its container
             canvas.width = container.clientWidth;
             canvas.height = container.clientHeight;
 
@@ -452,12 +381,10 @@ html_content = """
         }
 
         function renderAllCharts() {
-            // Destroy existing instances if they exist
             if (marketGrowthChartInstance) marketGrowthChartInstance.destroy();
-            if (componentsChartInstance) componentsChartInstance.destroy(); // Destroy new chart instance
+            if (componentsChartInstance) componentsChartInstance.destroy();
             if (consumerSentimentChartInstance) consumerSentimentChartInstance.destroy();
 
-            // Recreate charts
             marketGrowthChartInstance = createChart('marketGrowthChart', 'line', {
                 labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'],
                 datasets: [{
@@ -470,15 +397,14 @@ html_content = """
                 }]
             }, chartOptions);
 
-            // New Doughnut Chart for Dominant AI Components
             componentsChartInstance = createChart('componentsChart', 'doughnut', {
                 labels: ['Solution (88.52%)', 'Services (11.48%)'],
                 datasets: [{
                     label: 'Market Share (%)',
                     data: [88.52, 11.48],
                     backgroundColor: [
-                        'rgba(37, 99, 235, 0.7)', // Blue for Solution
-                        'rgba(59, 130, 246, 0.7)'  // Lighter blue for Services
+                        'rgba(37, 99, 235, 0.7)',
+                        'rgba(59, 130, 246, 0.7)'
                     ],
                     borderColor: [
                         'rgba(37, 99, 235, 1)',
@@ -521,7 +447,6 @@ html_content = """
                 }
             });
 
-
             consumerSentimentChartInstance = createChart('consumerSentimentChart', 'bar', {
                 labels: ['Open to AI for Purchase Decisions', 'Trust AI for Tailored Deals', 'Open to Chatbots'],
                 datasets: [
@@ -544,9 +469,7 @@ html_content = """
         }
 
         document.addEventListener('DOMContentLoaded', function () {
-            renderAllCharts(); // Initial render on page load
-
-            // Re-render charts on window resize
+            renderAllCharts();
             window.addEventListener('resize', renderAllCharts);
 
             const tabBtns = document.querySelectorAll('.tab-btn');
@@ -626,85 +549,6 @@ html_content = """
                         link.classList.add('active');
                     }
                 });
-            });
-
-            // LLM Integration
-            const summarizeButtons = document.querySelectorAll('.summarize-btn');
-            const summaryModal = document.getElementById('summaryModal');
-            const summaryModalTitle = document.getElementById('summaryModalTitle');
-            const summaryModalBody = document.getElementById('summaryModalBody');
-            const modalCloseBtn = document.querySelector('.modal-close-btn');
-
-            summarizeButtons.forEach(button => {
-                button.addEventListener('click', async (event) => {
-                    const section = event.target.closest('section');
-                    const sectionId = section.id;
-                    const sectionTitle = section.querySelector('h3').textContent;
-                    let sectionContent = '';
-
-                    // Extract text content from the section, excluding references and buttons
-                    Array.from(section.children).forEach(child => {
-                        if (!child.classList.contains('summarize-btn') && !child.classList.contains('reference-link-sup')) {
-                            sectionContent += child.textContent + ' ';
-                        }
-                    });
-
-                    // For the 'applications' section, include content from active tab pane
-                    if (sectionId === 'applications') {
-                        const activeTabPane = document.querySelector('#tab-content .tab-pane.active');
-                        if (activeTabPane) {
-                            sectionContent += activeTabPane.textContent;
-                        }
-                    }
-                    // For the 'leaders' section, include content from all accordion items
-                    if (sectionId === 'leaders') {
-                        const accordionContents = section.querySelectorAll('.accordion-content p');
-                        accordionContents.forEach(content => {
-                            sectionContent += content.textContent + ' ';
-                        });
-                    }
-
-                    summaryModalTitle.textContent = `Summary for: ${sectionTitle}`;
-                    summaryModalBody.innerHTML = '<div class="loading-spinner"></div>';
-                    summaryModal.classList.add('show');
-
-                    const prompt = `Summarize the following text about AI in Indian Retail concisely and professionally, focusing on key facts and insights. Do not use bullet points or lists, provide a paragraph summary: "${sectionContent.trim()}"`;
-
-                    try {
-                        let chatHistory = [];
-                        chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-                        const payload = { contents: chatHistory };
-                        const apiKey = ""; 
-                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-                        const response = await fetch(apiUrl, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-                        const result = await response.json();
-                        if (result.candidates && result.candidates.length > 0 &&
-                            result.candidates[0].content && result.candidates[0].content.parts &&
-                            result.candidates[0].content.parts.length > 0) {
-                            const text = result.candidates[0].content.parts[0].text;
-                            summaryModalBody.textContent = text;
-                        } else {
-                            summaryModalBody.textContent = 'Could not generate summary. Please try again.';
-                        }
-                    } catch (error) {
-                        console.error('Error calling Gemini API:', error);
-                        summaryModalBody.textContent = 'Failed to load summary. Please check your network connection or try again later.';
-                    }
-                });
-            });
-
-            modalCloseBtn.addEventListener('click', () => {
-                summaryModal.classList.remove('show');
-            });
-
-            summaryModal.addEventListener('click', (event) => {
-                if (event.target === summaryModal) {
-                    summaryModal.classList.remove('show');
-                }
             });
         });
     </script>
